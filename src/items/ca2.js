@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AlertAdd from "./alert";
 
 class Ca2 extends Component {
   constructor(props) {
