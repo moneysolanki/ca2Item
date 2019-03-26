@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Form from "./items/Form";
-import View from "./items/View";
+import Form from "./Form";
 
-class App extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,10 +20,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <br />
         <button
           type="button"
-          className="btn btn-info  btn-lg"
+          className="btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -34,10 +32,9 @@ class App extends React.Component {
         <div className="modal-dialog" role="document">
           {<Form />}
         </div>
-        <div className="row">{<View />}</div>
       </div>
     );
   }
 }
 
-export default App;
+export default Main;
