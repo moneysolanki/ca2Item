@@ -4,8 +4,9 @@ class View extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: this.props.items
     };
+    //this.handleDelete = this.handleDelete.bind(this);
   }
   componentDidMount() {
     let xmlhttp = new XMLHttpRequest();
@@ -16,11 +17,12 @@ class View extends Component {
       console.log(serverData);
       serverData = JSON.parse(serverData);
       this.setState({ items: serverData });
+      this.props.handleViewChange(serverData);
     }.bind(this);
   }
 
   render() {
-    let items = this.state.items;
+    let items = this.props.items;
     return (
       <div className="container">
         <div className="row">
@@ -30,6 +32,7 @@ class View extends Component {
                 <th>Sr No.</th>
                 <th>Name</th>
                 <th>Cost</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +42,10 @@ class View extends Component {
                     <td>{index + 1}</td>
                     <td>{items.name}</td>
                     <td>{items.cost}</td>
+                    <td>
+                      <button className="btn btn-info">Delete</button>{" "}
+                      <button className="btn btn-info">Update</button>
+                    </td>
                   </tr>
                 );
               })}

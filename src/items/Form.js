@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", cost: "", modal: false };
+    this.state = { name: this.props.name, cost: this.props.cost, modal: false };
     this.toggle = this.toggle.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -24,6 +24,7 @@ class Form extends Component {
     xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.send(JSON.stringify(this.state));
     console.log(this.state);
+    this.props.handleFormChange(this.state);
   }
 
   render() {
@@ -52,9 +53,15 @@ class Form extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
+              <div
+                className="modal-body"
+                style={{
+                  margin: "20px 20px",
+                  marginLeft: "70px"
+                }}
+              >
                 <div className="row">
-                  <p>Name : </p>
+                  <p style={{ marginRight: "20px" }}>Name : </p>
                   <div>
                     <input
                       type="text"
@@ -67,7 +74,7 @@ class Form extends Component {
                 </div>
                 <br />
                 <div className="row">
-                  <p>Cost :</p>
+                  <p style={{ marginRight: "28px" }}>Cost : </p>
                   <div>
                     <input
                       type="number"
