@@ -95,14 +95,14 @@ class Form extends Component {
                 >
                   Add Item
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-secondary"
                   data-dismiss="modal"
                   onClick={this.toggle}
                 >
                   Close
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
